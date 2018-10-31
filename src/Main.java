@@ -26,7 +26,8 @@ public class Main {
             Image imm = ImageIO.read(new File("abc.png"));
             ZPanel zp = new ZPanel();
             zp.setImage(imm);
-            zp.setPreferredSize(new Dimension(imm.getWidth(null),imm.getHeight(null)));
+            zp.setPreferredSize(new Dimension(
+                    imm.getWidth(null),imm.getHeight(null)));//如果不重写这一句的话，JPanel是没有大小的
             
             JFrame jf = new JFrame("测试");
             jf.add(zp);
