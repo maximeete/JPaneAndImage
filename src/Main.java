@@ -7,10 +7,7 @@
  * @author 91152
  */
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -22,14 +19,14 @@ import javax.swing.*;
 public class Main {
     private void init(){
         try {
-            //下面的4句是关键，有了下面的4句，这个ZPanel才能正常显示图片
             Image imm = ImageIO.read(new File("abc.png"));
             ZPanel zp = new ZPanel();
-            zp.setImage(imm);
-            zp.setPreferredSize(new Dimension(
-                    imm.getWidth(null),imm.getHeight(null)));//如果不重写这一句的话，JPanel是没有大小的
-            
             JFrame jf = new JFrame("测试");
+            
+            zp.setImage(imm);//传入图片
+            zp.setPreferredSize(new Dimension(
+                    imm.getWidth(null),imm.getHeight(null)));//设置JPanel的大小
+            
             jf.add(zp);
             jf.pack();
             jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
